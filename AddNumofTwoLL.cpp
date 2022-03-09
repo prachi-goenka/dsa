@@ -12,16 +12,17 @@ Node(int d){
   this->next = NULL;
 }
 };
-void insertAtBack(Node* &tail1,int d){
+Node* insertAtBack(Node* tail,int d){
   Node *temp=new Node(d);
-  tail1->next=temp;
-  tail1=temp;
+  tail->next=temp;
+  tail=temp;
+  return tail;
 }
-void insertAtBackk(Node* &tail2,int d){
+/*void insertAtBackk(Node* &tail2,int d){
   Node *temp=new Node(d);
   tail2->next=temp;
   tail2=temp;
-}
+}*/
 int number1(Node* &head1){
   Node* temp =head1;
   int num=0;
@@ -53,7 +54,7 @@ int main() {
   for(int i=1;i<n;i++)
     {
       cin>>d;
-      insertAtBack(tail1,d);
+      tail1 = insertAtBack(tail1,d);
     }
   int m;
   cin>>m;
@@ -64,7 +65,7 @@ int main() {
   for(int i=1;i<m;i++)
     {
       cin>>d;
-      insertAtBackk(tail2,d);
+      tail2 = insertAtBack(tail2,d);
     }
   int num1 = number1(head1);
   int num2 = number2(head2);
